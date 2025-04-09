@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
               />{" "}
             </svg>
           </div>
-          <ul
+          {/* <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
@@ -57,11 +57,11 @@ const Navbar: React.FC = () => {
                 </ul>
               </div>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
       <div className="navbar-center">
-        <a className="text-xl">Clinic Service Management</a>
+        <a className="text-xl">Invoice Management</a>
       </div>
       <div className="navbar-end">
         <LogoutButton />

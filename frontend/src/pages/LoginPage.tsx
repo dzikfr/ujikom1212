@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSnackbar } from "notistack";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import InputField from "../components/commons/InputField";
 
@@ -18,19 +18,20 @@ const LoginPage: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const payload = useEmail
-        ? { email: identifier, password }
-        : { username: identifier, password };
+      // const payload = useEmail
+      //   ? { email: identifier, password }
+      //   : { username: identifier, password };
 
-      const response = await axios.post("http://localhost:3000/login", payload);
+      // const response = await axios.post("http://localhost:3000/login", payload);
 
-      if (response.status === 200) {
-        enqueueSnackbar(response.data.message, { variant: "success" });
+      // if (response.status === 200) {
+      //   enqueueSnackbar(response.data.message, { variant: "success" });
         navigate("/dashboard");
-        sessionStorage.setItem("username", response.data.data.username);
-        sessionStorage.setItem("role", response.data.data.role);
-        sessionStorage.setItem("is_login", "true");
-      }
+        sessionStorage.setItem("username", identifier);
+        // sessionStorage.setItem("username", response.data.data.username);
+        // sessionStorage.setItem("role", response.data.data.role);
+        // sessionStorage.setItem("is_login", "true");
+      // }
     } catch (err: any) {
       enqueueSnackbar(
         err.response?.data?.message || "Terjadi kesalahan. Coba lagi nanti.",
@@ -76,7 +77,7 @@ const LoginPage: React.FC = () => {
                   type={useEmail ? "email" : "text"}
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
-                  required
+                  // required
                 />
               </div>
 
@@ -87,7 +88,7 @@ const LoginPage: React.FC = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
+                  // required
                 />
               </div>
 

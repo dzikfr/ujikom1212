@@ -5,14 +5,12 @@ export const invoiceBodySchema = z.object({
   payment_method: z.string().min(1),
   ppn: z.number().min(0),
   dp: z.number().min(0),
-  // grand_total: z.number().min(0),
   user: z.string().min(1),
   id_customer: z.number().min(1),
   id_company: z.number().min(1),
   details: z.array(
     z.object({
       id_product: z.number().min(1),
-      // invoice_number: z.number().min(1),
       qty: z.number().min(1),
       price: z.number().min(0),
     })

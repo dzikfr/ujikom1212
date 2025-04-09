@@ -18,10 +18,12 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.14.0",
     "@types/pg": "^8.11.11",
+    "cors": "^2.8.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }

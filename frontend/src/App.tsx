@@ -7,6 +7,7 @@ import ProductPage from "./pages/ProductPage";
 import CompanyPage from "./pages/CompanyPage";
 import CustomerPage from "./pages/CustomerPage"
 import InvoicePage from "./pages/InvoicePage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
 
-        {/* <Route element={<ProtectedRoute />}> */}
+        <Route element={<ProtectedRoute />}>
           <Route element={<Layout />}>
             <Route path="dashboard" element={<DashboardPage />} />
 
@@ -23,7 +24,7 @@ function App() {
             <Route path="customer" element={<CustomerPage />}/>
             <Route path="invoice" element={<InvoicePage />}/>
           </Route>
-        {/* </Route> */}
+        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

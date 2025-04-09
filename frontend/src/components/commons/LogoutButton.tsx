@@ -8,7 +8,6 @@ const LogoutButton = () => {
     if (confirmLogout) {
       sessionStorage.removeItem("is_login");
       sessionStorage.removeItem("username");
-      sessionStorage.removeItem("role");
       navigate("/");
     }
   };

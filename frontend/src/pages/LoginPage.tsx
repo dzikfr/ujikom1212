@@ -28,6 +28,7 @@ const LoginPage: React.FC = () => {
       //   enqueueSnackbar(response.data.message, { variant: "success" });
         navigate("/dashboard");
         sessionStorage.setItem("username", identifier);
+        sessionStorage.setItem("is_login", "true");
         // sessionStorage.setItem("username", response.data.data.username);
         // sessionStorage.setItem("role", response.data.data.role);
         // sessionStorage.setItem("is_login", "true");

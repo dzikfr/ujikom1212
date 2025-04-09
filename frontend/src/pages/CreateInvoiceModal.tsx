@@ -91,7 +91,10 @@ export default function CreateInvoiceModal({
     console.log("PAYLOAD =>", payload); // debug
 
     try {
-      await axios.post("http://localhost:3000/api/invoices", payload);
+      window.confirm(
+        "Apakah anda yakin ingin membuat invoice ini?"
+      ) && (await axios.post("http://localhost:3000/api/invoices", payload));
+      
       alert("Invoice created!");
       onClose();
     } catch (err) {

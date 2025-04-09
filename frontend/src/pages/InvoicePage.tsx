@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CreateInvoiceModal from "./CreateInvoiceModal";
 
 type Invoice = {
   invoice_number: number;
@@ -27,6 +28,7 @@ type Invoice = {
 export default function InvoiceTable() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState<Invoice | null>(null);
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   useEffect(() => {
     const fetchInvoices = async () => {
@@ -43,20 +45,22 @@ export default function InvoiceTable() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Invoices</h1>
       <div>
-      <div className="flex justify-between items-center mb-4">
-        <button
-          className="bg-base-200 text-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition"
-        >
-          Add Invoice
-        </button>
-      </div>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-2xl font-semibold">Invoice</h1>
+          <button
+            onClick={() => setShowCreateModal(true)}
+            className="bg-base-200 text-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition"
+          >
+            Add Invoice
+          </button>
+        </div>
+
         <table className="min-w-full bg-base-600 rounded shadow text-sm">
           <thead>
             <tr className="bg-base-600 text-left">
               <th className="p-3">No</th>
-              <th className="p-3">Invoice #</th>
+              <th className="p-3">Invoice Number</th>
               <th className="p-3">Customer</th>
               <th className="p-3">Company</th>
               <th className="p-3">Tanggal</th>
@@ -68,7 +72,7 @@ export default function InvoiceTable() {
             {invoices.map((inv, i) => (
               <tr key={inv.invoice_number} className="border-t">
                 <td className="p-3">{i + 1}</td>
-                <td className="p-3">#{inv.invoice_number}</td>
+                <td className="p-3">{inv.invoice_number}</td>
                 <td className="p-3">{inv.customer_name}</td>
                 <td className="p-3">{inv.company_name}</td>
                 <td className="p-3">
@@ -162,6 +166,10 @@ export default function InvoiceTable() {
             </table>
           </div>
         </div>
+      )}
+
+      {showCreateModal && (
+        <CreateInvoiceModal onClose={() => setShowCreateModal(false)} />
       )}
     </div>
   );

@@ -50,7 +50,7 @@ export default function InvoiceTable() {
           <h1 className="text-2xl font-semibold">Invoice</h1>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="bg-base-200 text-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition"
+            className="bg-white text-black px-4 py-2 rounded-md hover:bg-base-200 hover:text-white transition"
           >
             Add Invoice
           </button>

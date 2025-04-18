@@ -83,7 +83,7 @@ const CompanyTable: React.FC = () => {
         <h1 className="text-2xl font-semibold">Company List</h1>
         <button
           onClick={openAddModal}
-          className="bg-base-200 text-white px-4 py-2 rounded-md hover:bg-white hover:text-black transition"
+          className="bg-white text-black px-4 py-2 rounded-md hover:bg-base-200 hover:text-white transition"
         >
           Add Company
         </button>
@@ -111,13 +111,13 @@ const CompanyTable: React.FC = () => {
               <td className="px-4 py-2 border space-x-2">
                 <button
                   onClick={() => openEditModal(company)}
-                  className="bg-base-600 text-white px-2 py-1 rounded hover:bg-yellow-500"
+                  className="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-base-200 transition"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(company.id_company)}
-                  className="bg-base-600 text-white px-2 py-1 rounded hover:bg-red-600"
+                  className="bg-red-600 text-white px-2 py-1 rounded hover:bg-base-200 transition"
                 >
                   Delete
                 </button>

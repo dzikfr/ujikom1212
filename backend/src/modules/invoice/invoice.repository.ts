@@ -18,7 +18,7 @@ export class InvoiceRepository {
     }[],
     client: PoolClient
   ) {
-    const getGrandTotal = details.reduce((acc, curr) => acc + curr.price, 0);
+    const getGrandTotal = details.reduce((acc, curr) => acc + curr.price*curr.qty, 0);
     const result = await client.query(
       "INSERT INTO invoice (date, payment_method, ppn, dp, grand_total, username, id_customer, id_company) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_number",
       [
